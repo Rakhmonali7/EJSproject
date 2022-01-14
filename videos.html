@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Videos</title>
+    <style>
+      video {
+        width: 400px;
+        height: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>controls</h3>
+    <video src="myVid.mp4" controls></video>
+
+    <h3>controls&loop</h3>
+    <video src="myVid.mp4" controls loop></video>
+
+    <h3>controls&loop & autoplay</h3>
+    <video src="myVid.mp4" controls loop autoplay></video>
+
+    <h3>controls&loop & autoplay muted</h3>
+    <video src="myVid.mp4" controls loop autoplay muted></video>
+
+    <div style="display: flex; align-items: flex-end">
+      <video src="myVid.mp4" controls loop autoplay></video>
+      <h3>controls&loop & autoplay</h3>
+
+      <video src="myVid.mp4" controls loop autoplay muted></video>
+      <h3>controls&loop & autoplay muted</h3>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 10px; padding-left: 150px">
+      <video src="myVid.mp4" controls loop></video>
+      <video src="myVid.mp4" controls loop></video>
+      <video src="myVid.mp4" controls loop></video>
+      <video src="myVid.mp4" controls loop></video>
+      <video src="myVid.mp4" controls loop></video>
+      <video src="myVid.mp4" controls loop></video>
+      <video src="myVid.mp4" controls loop></video>
+      <video src="myVid.mp4" controls loop></video>
+      <video src="myVid.mp4" controls loop></video>
+    </div>
+    <a href="index.html">Home page</a>
+  </body>
+</html>
