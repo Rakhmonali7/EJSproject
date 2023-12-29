@@ -2,7 +2,7 @@
 class Authintification {
   constructor() {
     this.loggedInUser = null;
-    this.baseURL = "https://greenshop.abduvoitov.com/api";
+    this.baseURL = "https://greenshop.abduvoitov.com/api/user";
   }
 
   async signIn(username, password) {
