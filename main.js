@@ -54,22 +54,21 @@ class Authintification {
 
 const fakeAPI = new Authintification();
 
-fakeAPI
-  .signIn("user", "password")
-  .then((response) => {
-    console.log(response);
-    console.log("Logged in as:", fakeAPI.getCurrentUser());
+fakeAPI.signIn("user", "password").then((response) => {
+  console.log(response);
+  console.log("Logged in as:", fakeAPI.getCurrentUser());
 
-    fakeAPI
-      .signOut()
-      .then((response) => {
-        console.log(response);
-        console.log("Logged in as:", fakeAPI.getCurrentUser());
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  })
-  .catch((error) => {
-    console.error(error);
-  });
+  fakeAPI
+    .signOut()
+    .then((response) => {
+      console.log(response);
+      console.log("Logged in as:", fakeAPI.getCurrentUser());
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+});
+// .catch((error) => {
+//   console.error(error);
+// });
+// end of the function
