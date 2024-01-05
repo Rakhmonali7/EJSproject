@@ -58,6 +58,10 @@ fakeAPI.signIn("user", "password").then((response) => {
   console.log(response);
   console.log("Logged in as:", fakeAPI.getCurrentUser());
 
+  fakeAPI.signOut().then((response) => {
+    console.log(response);
+    console.log("Logged in as:", fakeAPI.getCurrentUser());
+  });
   fakeAPI
     .signOut()
     .then((response) => {
