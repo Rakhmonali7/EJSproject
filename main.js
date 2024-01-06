@@ -76,3 +76,25 @@ fakeAPI.signIn("user", "password").then((response) => {
 //   console.error(error);
 // });
 // end of the function
+function moveZeroes(nums) {
+  let nonZeroPointer = 0;
+
+  // Iterate through the array
+  for (let i = 0; i < nums.length; i++) {
+    // If the current element is non-zero
+    if (nums[i] !== 0) {
+      // Move it to the front of the array at nonZeroPointer position
+      nums[nonZeroPointer] = nums[i];
+
+      // Increment the nonZeroPointer
+      nonZeroPointer++;
+    }
+  }
+
+  // After moving all non-zero elements, fill the remaining with zeroes
+  for (let i = nonZeroPointer; i < nums.length; i++) {
+    nums[i] = 0;
+  }
+
+  return nums;
+}
