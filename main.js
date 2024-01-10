@@ -1,100 +1,22 @@
 "use-strict";
-class Authintification {
-  constructor() {
-    this.loggedInUser = null;
-    this.baseURL = "https://greenshop.abduvoitov.com/api/user";
-  }
 
-  async signIn(username, password) {
-    try {
-      const response = await fetch(`${this.baseURL}/login`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ username, password }),
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        this.loggedInUser = data.username;
-        return { message: "Sign-in successful", user: this.loggedInUser };
-      } else {
-        throw new Error("Sign-in failed");
-      }
-    } catch (error) {
-      throw new Error("Sign-in failed");
-    }
-  }
-
-  async signOut() {
-    try {
-      const response = await fetch(`${this.baseURL}/logout`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-
-      if (response.ok) {
-        this.loggedInUser = null;
-        return { message: "Sign-out successful" };
-      } else {
-        throw new Error("Sign-out failed");
-      }
-    } catch (error) {
-      throw new Error("Sign-out failed");
-    }
-  }
-
-  getCurrentUser() {
-    return this.loggedInUser;
+class TreeNode {
+  constructor(val) {
+    this.val = val;
+    this.left = this.right = null;
   }
 }
 
-const fakeAPI = new Authintification();
-
-fakeAPI.signIn("user", "password").then((response) => {
-  console.log(response);
-  console.log("Logged in as:", fakeAPI.getCurrentUser());
-
-  fakeAPI.signOut().then((response) => {
-    console.log(response);
-    console.log("Logged in as:", fakeAPI.getCurrentUser());
-  });
-  fakeAPI
-    .signOut()
-    .then((response) => {
-      console.log(response);
-      console.log("Logged in as:", fakeAPI.getCurrentUser());
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-});
-// .catch((error) => {
-//   console.error(error);
-// });
-// end of the function
-function moveZeroes(nums) {
-  let nonZeroPointer = 0;
-
-  // Iterate through the array
-  for (let i = 0; i < nums.length; i++) {
-    // If the current element is non-zero
-    if (nums[i] !== 0) {
-      // Move it to the front of the array at nonZeroPointer position
-      nums[nonZeroPointer] = nums[i];
-
-      // Increment the nonZeroPointer
-      nonZeroPointer++;
-    }
+function sortedArrayToBST(nums) {
+  if (nums.length === 0) {
+    return null;
   }
 
-  // After moving all non-zero elements, fill the remaining with zeroes
-  for (let i = nonZeroPointer; i < nums.length; i++) {
-    nums[i] = 0;
-  }
+  const mid = Math.floor(nums.length / 2);
+  const root = new TreeNode(nums[mid]);
 
-  return nums;
+  root.left = sortedArrayToBST(nums.slice(0, mid));
+  root.right = sortedArrayToBST(nums.slice(mid + 1));
+
+  return root;
 }
