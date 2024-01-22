@@ -1,15 +1,21 @@
-"use-strict";
-let salaries = {
-  "John": 100,
-  "Pete": 300,
-  "Mary": 250
-};
+const express = require('express');
+const app = express();
+const path = require('path');
 
-Object.prototype.count = function(){
-  return Object.values(this).reduce((cur, accum) => {
-    accum += cur
-    return accum
-  }, 0)
-}
-console.log(salaries.count())
+// Set the 'views' directory
+app.set('views', path.join(__dirname, 'views'));
 
+// Set the view engine to EJS
+app.set('view engine', 'ejs');
+
+app.get('/', (req, res) => {
+  res.status(200).render('index', { pageTitle: 'Home Page' });
+});
+
+app.get('/about', (req, res) => {
+  res.status(200).render('about', { pageTitle: 'About Page' });
+});
+
+app.listen(3000, () => {
+  console.log('This app is running at http://localhost:3000');
+});
