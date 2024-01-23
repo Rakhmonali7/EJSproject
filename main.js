@@ -5,6 +5,8 @@ const path = require('path');
 
 // Set the 'views' directory
 app.set('views', path.join(__dirname, 'views'));
+// Middleware to connect img file
+
 
 // Set the view engine to EJS
 app.set('view engine', 'ejs');
