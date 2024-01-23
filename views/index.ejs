@@ -1,25 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= pageTitle %></title>
-</head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
-            </ul>
-        </nav>
-    </header>
+<%- include("layout/header") %>
     <main>
-        <h1>Welcome to home  page</h1>
-    </main>
-    <footer>
+        <form action="/" method="post">
+            <div class="input-container">
+                <button class="btn-res">
 
-    </footer>
-    
-</body>
-</html>
+                </button>
+                <input type="text" placeholder="Search words here..." name = 'SeachingThisWord'>
+            </div>
+        </form>
+        <div class="result-box">
+
+        </div>
+    </main>
+    <%- include("layout/footer") %>
